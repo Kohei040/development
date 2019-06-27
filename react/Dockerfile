@@ -1,6 +1,4 @@
-FROM node:8.15.1-alpine
-
-#RUN yarn create react-app my-app
+FROM node:8.15.1-alpine AS builder
 
 RUN mkdir react && \
     cd react && \
@@ -13,5 +11,9 @@ RUN mkdir react && \
 COPY ./package.json ./webpack.config.js ./.babelrc /react/
 
 WORKDIR /react
+CMD ["yarn", "build"]
 
+FROM  builder
+
+WORKDIR /react
 CMD ["yarn", "start"]

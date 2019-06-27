@@ -7,5 +7,5 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./react/public:/react/public/
+      - ./react/public/index.html:/react/public/index.html
       - ./react/src:/react/src/

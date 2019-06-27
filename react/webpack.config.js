@@ -1,14 +1,20 @@
 module.exports = {
+  watch: true,
   entry: { app: "./src/index.js" },
   output: {
-    path: __dirname + '/public/js',
-    filename: "[name].js"
+    path: __dirname + '/public',
+    filename: "bundle.js"
   },
   devServer: {
     contentBase: __dirname + '/public',
     port: 3000,
-    publicPath: '/js/',
+    publicPath: 'bundle.js',
     disableHostCheck: true,
+    watchContentBase: true,
+    watchOptions: {
+            poll: true
+    },
+    hot: true,
     host: '0.0.0.0'
   },
   module: {
