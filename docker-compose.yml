@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  # React
+  react:
+    build:
+      context: ./react/
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./react/public:/react/public/
+      - ./react/src:/react/src/
