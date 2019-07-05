@@ -1,0 +1,8 @@
+FROM mysql
+
+ENV MYSQL_ROOT_PASSWORD=Passw0rd
+ENV MYSQL_DATABASE=hogedb
+ENV MYSQL_USER=hoge
+ENV MYSQL_PASSWORD=hogehoge
+
+CMD ["mysqld"]

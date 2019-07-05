@@ -1,5 +1,8 @@
 module.exports = {
-  entry: { app: "./src/index.js" },
+  entry: {
+    app: "./src/index.js",
+    fetch: "./src/api.js"
+   },
   output: {
     path: __dirname + '/public/js',
     filename: "[name].js"
@@ -11,7 +14,7 @@ module.exports = {
     disableHostCheck: true,
     watchContentBase: true,
     watchOptions: {
-            poll: 1000
+      poll: 1000
     },
     hot: true,
     host: '0.0.0.0'
@@ -22,6 +25,22 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
       }
     ]
   },
